@@ -1,2 +1,0 @@
-web: gunicorn Portfolio.wsgi
-web: python3 Portfolio/manage.py runserver 0.0.0.0:$PORT
