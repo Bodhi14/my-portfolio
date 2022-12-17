@@ -1,11 +1,9 @@
 from email import message
 from multiprocessing import context
-import re
 from urllib.request import Request
 from webbrowser import get
 from django.shortcuts import render
 from django.http import HttpResponse
-from httplib2 import BasicAuthentication
 from rest_framework.response import Response
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -45,8 +43,6 @@ def home(request):
 
 
 class InfoAPI(APIView):
-
-    permission_classes = [ BasicAuthentication ]
 
     def get(self, request, pk=None, format=None):
         if pk is not None:
