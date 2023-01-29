@@ -33,9 +33,11 @@ def home(request):
         user.subject = subject
         user.message = message
 
+        dictionary = {'name':name,'subject':subject,'msg':message}
+
         user.save()
 
-        return render(request, 'app/index.html' ,context={'name':name,'subject':subject,'msg':message})
+        return render(request, 'app/index.html' , dictionary)
 
         
 
@@ -54,6 +56,9 @@ class InfoAPI(APIView):
         items = Info.objects.all()
         serializer = InfoSerializer(items, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        return
         
 
 
